@@ -1,0 +1,12 @@
+---
+- hosts: node8 node7 node9
+  tasks:
+    - name: restart nginx
+      service: name=nginx enabled=yes state=stopped
+    - lineinfile:
+        path : /usr/share/nginx/html/index.html
+        line: 'for more information use http://www.kubernetes.io'
+
+    - name: start nginx
+      service: name=nginx enabled=yes state=started
+...

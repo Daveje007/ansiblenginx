@@ -1,0 +1,6 @@
+---
+- hosts: node7
+  tasks:
+    - lineinfile:
+        path: /etc/motd
+        line: 'edit this'
