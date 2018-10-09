@@ -1,0 +1,16 @@
+---
+# create roles directory structure
+- hosts: localhost
+  tasks:
+    - name: create directories for roles
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - ~/ansiblenginx/common
+        - ~/ansiblenginx/common/files
+        - ~/ansiblenginx/common/handlers
+        - ~/ansiblenginx/common/meta
+        - ~/ansiblenginx/common/templates
+        - ~/ansiblenginx/common/tasks
+        - ~/ansiblenginx/common/vars

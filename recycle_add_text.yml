@@ -1,12 +1,30 @@
 ---
-- hosts: node8 node7 node9
+#- hosts: node8 node7 node9
+- hosts: node7
   tasks:
-    - name: restart nginx
+    - name: stop nginx
       service: name=nginx enabled=yes state=stopped
-    - lineinfile:
+      tags:
+         - second_text
+
+    - name: add in hhtp address
+      lineinfile:
         path : /usr/share/nginx/html/index.html
         line: 'for more information use http://www.kubernetes.io'
+      tags:
+         - first_text
+
+    - name: change Welcome
+      lineinfile:
+        path: /usr/share/nginx/html/index.html
+        line: 'This is the home page of the SSC
+          Kubernetes farm so if you finds yourself here
+          please call 0203 3952691'
+      tags:
+         - second_text
 
     - name: start nginx
       service: name=nginx enabled=yes state=started
+      tags:
+         - first_text
 ...
