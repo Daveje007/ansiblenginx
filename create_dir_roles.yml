@@ -7,10 +7,16 @@
         path: "{{ item }}"
         state: directory
       with_items:
-        - ~/ansiblenginx/common
-        - ~/ansiblenginx/common/files
-        - ~/ansiblenginx/common/handlers
-        - ~/ansiblenginx/common/meta
-        - ~/ansiblenginx/common/templates
-        - ~/ansiblenginx/common/tasks
-        - ~/ansiblenginx/common/vars
+        - ~/ansiblenginx/roles/common
+        - ~/ansiblenginx/roles/common/files
+        - ~/ansiblenginx/roles/common/handlers/main.yml
+        - ~/ansiblenginx/roles/common/meta/main.yml
+        - ~/ansiblenginx/roles/common/templates
+        - ~/ansiblenginx/roles/common/tasks/main.yml
+        - ~/ansiblenginx/roles/common/vars/main.yml
+        - ~/ansiblenginx/roles/nginx/files
+        - ~/ansiblenginx/roles/nginx/handlers/main.yml
+        - ~/ansiblenginx/roles/nginx/meta/main.yml
+        - ~/ansiblenginx/roles/nginx/templates
+        - ~/ansiblenginx/roles/nginx/tasks/main.yml
+        - ~/ansiblenginx/roles/nginx/vars/main.yml
