@@ -1,1 +1,24 @@
 ---
+- name: add repository nginx-release
+      yum_repository:
+        name: nginx
+        description: nginx
+        baseurl: https://nginx.org/packages/mainline/rhel/7/$basearch/
+        gpgcheck: no
+        enabled: 1
+- name: install nginx
+      yum:
+        name: nginx
+        state: latest
+- name: start nginx
+      service: name=nginx enabled=yes state=started
+
+- name: stop nginx
+      service: name=nginx enabled=yes state=stopped
+
+- name: update index.html
+      copy: src=index.html dest=/usr/share/nginx/html/
+
+- name: restart nginx
+      service: name=nginx enabled=yes state=reloaded
+...
