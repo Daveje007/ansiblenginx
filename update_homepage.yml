@@ -1,0 +1,6 @@
+---
+# update the nginx homepage
+- hosts: node7 node8 node9
+  tasks:
+
+...
