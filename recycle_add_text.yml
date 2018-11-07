@@ -26,5 +26,5 @@
     - name: start nginx
       service: name=nginx enabled=yes state=started
       tags:
-         - first_text
+        - second_text
 ...
