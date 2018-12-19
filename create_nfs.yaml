@@ -1,9 +1,9 @@
 ---
-- hosts: node9 node8 node7
+- hosts: node5
   tasks:
-    - name: add in share to /etc/fstab
+    - name: add in share to /etc/exports
       lineinfile:
-        path: /etc/fstab
-        line: 'node5:/nfs /nfs  nfs defaults  0 0'
-
+        path: /etc/exports
+        line: '/nfs node7(rw,no_root_squash)  node8(rw,no_root_squash)  node9(rw,no_root_squash)'
+      service: name=nfs enabled=yes state=reloaded
 ...
