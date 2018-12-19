@@ -1,7 +1,7 @@
 ---
 - hosts: node5
   tasks:
-    name: add in share to /etc/exports
+  - name: add in share to /etc/exports
       lineinfile:
         path: /etc/exports
         line: '/nfs node7(rw,no_root_squash)  node8(rw,no_root_squash)  node9(rw,no_root_squash)'
