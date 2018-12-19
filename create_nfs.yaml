@@ -6,11 +6,4 @@
         path: /etc/fstab
         line: 'node5:/nfs /nfs  nfs defaults  0 0'
 
-    - name: create /nfs
-      file:
-        path: "{{ item }}"
-        state: directory
-      with_items:
-        - /nfs
-
 ...
