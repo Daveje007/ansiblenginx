@@ -3,7 +3,10 @@
 - hosts: node7
   tasks:
     - name: stop nginx
-      service: name=nginx enabled=yes state=stopped
+      service:
+        name=nginx
+        enabled=yes
+        state=stopped
       tags:
          - second_text
 

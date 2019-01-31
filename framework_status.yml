@@ -4,10 +4,15 @@
 - hosts: node7 node8 node9
   tasks:
     - name: verify nginx service
-      service: name=nginx enabled=yes state=started
+      service:
+        name=nginx
+        enabled=yes
+        state=started
 
     - name: Check NGINX is on port 80
-      wait_for: port=80 timeout=1
+      wait_for:
+        port=80
+        timeout=1
 
     - name: Check http nginx
       uri:
