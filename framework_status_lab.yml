@@ -1,7 +1,7 @@
 ---
 #- hosts: node7 node8 node9
 #- hosts: jabdlvc0052.it.statestr.com jabdlvc0053.it.statestr.com jabdlvc0054.it.statestr.com
-- hosts: lcptlvc0001
+- hosts: status
   tasks:
     - name: verify NGINX Ansible Tower service
       service:
