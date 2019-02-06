@@ -1,9 +1,9 @@
 ---
-# check nginx is on port 80
 #- hosts: node7 node8 node9
-- hosts: node7 node8 node9
+#- hosts: jabdlvc0052.it.statestr.com jabdlvc0053.it.statestr.com jabdlvc0054.it.statestr.com
+- hosts: 10.42.0.42
   tasks:
-    - name: verify nginx service
+    - name: verify NGINX Ansible Tower service
       service:
         name=nginx
         enabled=yes
@@ -16,7 +16,22 @@
 
     - name: Check http nginx
       uri:
-        url: http://node7
+        #url: https://ansibletower-dev.it.statestr.com
+        url: https://10.42.0.42
         return_content: yes
       register: webpage
+
+    - name: check rabbitmq-server.service
+      service:
+        name=rabbitmq-server.service
+        enabled=yes
+        state=started
+
+    - name: check supervisord.service
+      service:
+        name=supervisord.service
+        enabled=yes
+        state=started
+
+
 ...
