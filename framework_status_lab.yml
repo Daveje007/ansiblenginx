@@ -1,0 +1,37 @@
+---
+#- hosts: node7 node8 node9
+#- hosts: jabdlvc0052.it.statestr.com jabdlvc0053.it.statestr.com jabdlvc0054.it.statestr.com
+- hosts: lcptlvc0001
+  tasks:
+    - name: verify NGINX Ansible Tower service
+      service:
+        name=nginx
+        enabled=yes
+        state=started
+
+    - name: Check NGINX is on port 80
+      wait_for:
+        port=80
+        timeout=1
+
+    - name: Check http nginx
+      uri:
+        #url: https://ansibletower-dev.it.statestr.com
+        url: https://lcptlvc0001
+        return_content: yes
+      register: webpage
+
+    - name: check rabbitmq-server.service
+      service:
+        name=rabbitmq-server.service
+        enabled=yes
+        state=started
+
+    - name: check supervisord.service
+      service:
+        name=supervisord.service
+        enabled=yes
+        state=started
+
+
+...
